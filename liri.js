@@ -5,6 +5,7 @@ var Spotify = require('node-spotify-api')
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 var moment = require('moment');
+var fs = require('fs');
 
 //user inputs
 var userChoice = process.argv[2];
@@ -117,9 +118,9 @@ function rottenTomatoesObj(data) {
   function displayInfo(){
       fs.readFile('random.txt', 'utf8', function(err, data){
           if(err){
-              console.log(err);
+              return console.log(err);
           }
           var dataArr = data.split(',');
-          userInputs(dataArr[0], dataArr[2]);
-      })
+          userInputs(dataArr[0], dataArr[1]);
+      });
   }
