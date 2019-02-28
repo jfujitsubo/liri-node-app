@@ -23,6 +23,7 @@ function userInputs(userChoice, userInput) {
         break;
     case 'movie-this':
         displayMovies(userInput);
+        break;
     case 'do-what-it-says':
         displayInfo();
         break;
@@ -87,7 +88,7 @@ function displayMovies(userInput){
         userInput = "Mr.Nobody"
         console.log("If you haven't watched 'Mr. Nobody,' then you should: http://www.imdb.com/title/tt0485947/" +"\n");
     } 
-    var queryUrl = "http://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=e1d330ed"
+    var queryURL = "http://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=e1d330ed"
     axios.get(queryURL).then(
         function(response){
             let movies = response.data;
@@ -103,12 +104,22 @@ function displayMovies(userInput){
     )
 }
 
-/*function rottenTomatoesObj(data) {
-    return data.Ratings.find(function (item) {
+function rottenTomatoesObj(data) {
+    return data.Ratings.find(function(item) {
        return item.Source === "Rotten Tomatoes";
     });
   }
   
-  function getRottenTomatoesRatingVal(data) {
-    return rottenTomatoesRatingObj(data).Value;
-  }*/
+  function RottenTomatoesRatingVal(data) {
+    return rottenTomatoesObj(data).Value;
+  }
+
+  function displayInfo(){
+      false.readFile('random.txt', 'utf8', function(err, data){
+          if(err){
+              console.log(err);
+          }
+          var dataArr = data.split(',');
+          userInputs(dataArr[0], dataArr[2]);
+      })
+  }
