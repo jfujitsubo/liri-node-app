@@ -20,3 +20,5 @@ or
 
 do-what-it-says (to use 'random.txt' as a method of inputting data)
 
+**************LINK TO FUNCTIONALITY VIDEO******************
+https://youtu.be/Vsx67RbnMOc
