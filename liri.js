@@ -115,7 +115,7 @@ function rottenTomatoesObj(data) {
   }
 
   function displayInfo(){
-      false.readFile('random.txt', 'utf8', function(err, data){
+      fs.readFile('random.txt', 'utf8', function(err, data){
           if(err){
               console.log(err);
           }
